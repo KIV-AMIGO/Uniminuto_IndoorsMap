@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Uni</string>
+    <string name="hello_world">Wait for position</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

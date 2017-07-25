@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('indoors-library-surface-4.7.0.aar'))
