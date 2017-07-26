@@ -39,7 +39,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
+        android:layout_weight="12"
         android:orientation="vertical"
         android:weightSum="100">
         <LinearLayout
@@ -48,18 +48,27 @@
             android:layout_weight="50"
             android:orientation="horizontal"
             android:weightSum="100">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="43"
+                android:background="@drawable/nia" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="50" />
-
+                android:layout_weight="10" />
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
+                android:layout_weight="43"
                 android:background="@drawable/dankook" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,15 +76,22 @@
             android:layout_weight="50"
             android:orientation="horizontal"
             android:weightSum="100">
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"/>
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:background="@drawable/yonsei"/>
+                android:layout_weight="43"
+                android:background="@drawable/worldfriends" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="45"
+                android:background="@drawable/yonsei" />
         </LinearLayout>
     </LinearLayout>
 

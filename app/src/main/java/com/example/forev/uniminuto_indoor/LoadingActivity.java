@@ -31,7 +31,7 @@ public class LoadingActivity  extends AppCompatActivity {
             public void onPermissionGranted() { //권한이 모두 허용된 후 실행.
                 Toast.makeText(LoadingActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
                 //3초동안 로딩화면이 뜨게하기.
-                intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent = new Intent(getApplicationContext(),HomeActivity.class);
                 Handler handler = new Handler(){
                     public void handleMessage(Message msg){
                         startActivity(intent); //로딩시스템
