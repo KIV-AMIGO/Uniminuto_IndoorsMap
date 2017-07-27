@@ -52,7 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="43"
-                android:background="@drawable/nia" />
+                android:background="@drawable/kiv" />
 
             <Space
                 android:layout_width="0dp"

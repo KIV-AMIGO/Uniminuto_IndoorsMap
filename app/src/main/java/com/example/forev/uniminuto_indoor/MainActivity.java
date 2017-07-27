@@ -151,13 +151,13 @@ public class MainActivity extends AppCompatActivity implements IndoorsLocationLi
          * If Lat/Lon/Rotation of your building are set correctly you can calculate a
          * GeoCoordinate for your users current location in the building.
          */
-        GeoCoordinate geoCoordinate = indoorsSurfaceFragment.getCurrentUserGpsPosition();
+        GeoCoordinate geoCoordinate = indoorsSurfaceFragment.getCurrentUserGpsPosition(); //유저 위치 얻어오는 함수.
 
         if (geoCoordinate != null) {
             Toast.makeText(
                     this,
-                    "User is located at " + geoCoordinate.getLatitude() + ","
-                            + geoCoordinate.getLongitude(), Toast.LENGTH_SHORT).show();
+                    "User is located at " + geoCoordinate.getLatitude() + "," //위도
+                            + geoCoordinate.getLongitude(), Toast.LENGTH_SHORT).show(); //경도
         }
     }
 
@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements IndoorsLocationLi
             }
         }
     }
+
 
     @Override
     public void onError(IndoorsException indoorsException) {
