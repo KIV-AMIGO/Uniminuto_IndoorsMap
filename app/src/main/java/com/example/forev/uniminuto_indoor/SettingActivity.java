@@ -41,8 +41,8 @@ public class SettingActivity  extends AppCompatActivity {
         btn_credit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getApplication(),CreditActivity.class));
-               // SettingActivity.this.finish();
+                startActivity(new Intent(getApplication(),CreditActivity.class));
+               SettingActivity.this.finish();
             }
         });
 
@@ -60,7 +60,7 @@ public class SettingActivity  extends AppCompatActivity {
         btn_costList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),MainActivity.class));
+                startActivity(new Intent(getApplication(),MapActivity.class));
                 SettingActivity.this.finish();
             }
         });
