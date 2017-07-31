@@ -31,7 +31,7 @@ public class HomeActivity  extends AppCompatActivity {
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),MainActivity.class));
+                startActivity(new Intent(getApplication(),MapActivity.class));
                 HomeActivity.this.finish();
             }
         });
@@ -42,19 +42,19 @@ public class HomeActivity  extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplication(),MypageActivity.class));
-                CreditActivity.this.finish();
+                HomeActivity.this.finish();
             }
         });
-        btn_setting = (Button)findViewById(R.id.btn_setting);
+         *
+         */
+        Button btn_setting = (Button) findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
-                CreditActivity.this.finish();
+                HomeActivity.this.finish();
             }
         });
-        *
-         */
         //하단버튼 끝
     }
 }

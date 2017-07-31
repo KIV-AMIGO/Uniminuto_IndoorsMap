@@ -11,14 +11,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="80"
+        android:layout_weight="90"
         android:orientation="vertical"
         android:weightSum="100">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="20">
+            android:layout_weight="9"
+            android:background="#f0e289"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            // 뒤로가기 버튼
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_weight="10"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_back"/>
+
+            // 제목
+            <TextView
+                android:layout_weight="80"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text = "Setting"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000"/>
+
+            // 나머지 공간
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15">
 
             <TextView
                 android:id="@+id/textView2"
@@ -183,7 +218,7 @@
                 android:id="@+id/btn_credit"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="70"
+                android:layout_weight="50"
                 android:gravity="center"
                 android:text="Credit"
                 android:textSize="25sp" />
@@ -191,41 +226,6 @@
 
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
-        android:background="#f0e289"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        // 뒤로가기 버튼
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_weight="10"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/button_back"/>
-
-        // 제목
-        <TextView
-            android:layout_weight="80"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text = "Setting"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="#000000"/>
-
-        // 나머지 공간
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"/>
-    </LinearLayout>
-
 
     // 사용할 공간
 

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_credit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    // 상단 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:background="#f0e289"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        // 뒤로가기 버튼
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_weight="10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_back"/>
+
+        // 제목
+        <TextView
+            android:layout_weight="80"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text = "Credit"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#000000"/>
+
+        // 나머지 공간
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+    </LinearLayout>
+
+
+    // 사용할 공간
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:weightSum="100"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="match_parent"
+            android:background="@drawable/dankook"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="match_parent"
+            android:background="@drawable/yonsei"
+            />
+        </LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:text="   IT   이상규 BackEnd"
+            android:textSize="26sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:text="   IT   이승우 FrontEnd"
+            android:textSize="26sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:text=" 언어 차여명 "
+            android:textSize="26sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:text=" 문화 황지현"
+            android:textSize="26sp"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:text=" ver0.1"/>
+
+
+    </LinearLayout>
+
+
+
+
+    // 하단 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="11">
+
+        <include
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/basic_layout"
+            />
+    </LinearLayout>
+</LinearLayout>
