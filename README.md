@@ -1,6 +1,6 @@
 # Uniminuto_IndoorsMap
 
-2Comit - 2017.07.26
+1Comit - 2017.07.26
 1. 아이콘변경
 2. CircleImageView 만들기 실패
 3. 로딩화면-> nia,worldfriends,단국, 연세(단국 연세는 빼야할지고민좀)
@@ -10,9 +10,15 @@
 
 
 
-3Comit - 2017.07.27
+2Comit - 2017.07.27
 1. Setting화면 프로토타입만듬
 2. SQLite 사용예정-> 최근검색어
 3. 그래서 검색기능구현해야함
 4. nia->kiv로  이미지 변경
 5. 네비게이션 내위치 보는 기능 확인
+
+
+
+3.Commit- 2017.07.28
+1. Credit화면 프로토타입만듬
+2. FrontEnd 잔버그 수정
