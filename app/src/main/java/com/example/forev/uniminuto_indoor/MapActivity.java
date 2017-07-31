@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.customlbs.coordinates.GeoCoordinate;
@@ -44,6 +46,57 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         else{ //버전이 마시멜로 이하인 경우
             continueLoading();
         }
+        //back 뒤로가기 버튼
+
+        Button btn_back = (Button) findViewById(R.id.btn_back);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),HomeActivity.class));
+                MapActivity.this.finish();
+            }
+        });
+        //하단버튼
+
+        Button btn_home = (Button) findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),HomeActivity.class));
+                MapActivity.this.finish();
+            }
+        });
+        Button btn_map = (Button) findViewById(R.id.btn_map);
+        btn_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),MapActivity.class));
+                MapActivity.this.finish();
+            }
+        });
+        /**
+         btn_myPage = (Button)findViewById(R.id.btn_myPage);
+         btn_myPage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        startActivity(new Intent(getApplication(),MypageActivity.class));
+        HomeActivity.this.finish();
+        }
+        });
+         *
+         */
+        Button btn_setting = (Button) findViewById(R.id.btn_setting);
+        btn_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),SettingActivity.class));
+                MapActivity.this.finish();
+            }
+        });
+        //하단버튼 끝
+
     }
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
