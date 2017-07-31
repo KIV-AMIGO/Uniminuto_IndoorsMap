@@ -133,7 +133,8 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             @Override
             public void run() {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(android.R.id.content, indoorsFragment, "indoors");
+
+                transaction.add(R.id.mapView, indoorsFragment, "indoors");
                 transaction.commit();
             }
         });

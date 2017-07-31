@@ -3,28 +3,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="100" >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="70"></LinearLayout>
-    <TextView
-        android:id="@+id/txtPosition"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
-        tools:context=".MapActivity" />
-    <ProgressBar
-        android:id="@+id/prgBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:max="100"
-        />
+    android:layout_weight="100"
+    android:weightSum="1">
 
+    <WebView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="319dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_weight="0.59" />
 </LinearLayout>
