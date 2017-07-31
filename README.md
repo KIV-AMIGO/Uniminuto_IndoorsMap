@@ -19,6 +19,18 @@
 
 
 
-3.Commit- 2017.07.28
+3.Commit - 2017.07.28
 1. Credit화면 프로토타입만듬
 2. FrontEnd 잔버그 수정
+
+
+
+
+4.Commit - 2017.07.31
+1. MapActivity에서 전체화면에 지도가 나오는 것을 Container에 넣음
+
+
+
+5.Commit- 2017.07.31
+1. Map 프론트엔드 손질
+2. Back 버튼 구현 
