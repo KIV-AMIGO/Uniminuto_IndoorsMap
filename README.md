@@ -1,6 +1,6 @@
 # Uniminuto_IndoorsMap
 
-1Comit - 2017.07.26
+1Commit - 2017.07.26
 1. 아이콘변경
 2. CircleImageView 만들기 실패
 3. 로딩화면-> nia,worldfriends,단국, 연세(단국 연세는 빼야할지고민좀)
@@ -10,7 +10,7 @@
 
 
 
-2Comit - 2017.07.27
+2Commit - 2017.07.27
 1. Setting화면 프로토타입만듬
 2. SQLite 사용예정-> 최근검색어
 3. 그래서 검색기능구현해야함
@@ -19,24 +19,29 @@
 
 
 
-3.Commit - 2017.07.28
+3Commmit - 2017.07.28
 1. Credit화면 프로토타입만듬
 2. FrontEnd 잔버그 수정
 
 
 
 
-4.Commit - 2017.07.31
+4Commit - 2017.07.31
 1. MapActivity에서 전체화면에 지도가 나오는 것을 Container에 넣음
 
 
 
-5.Commit- 2017.07.31
+5Commit- 2017.07.31
 1. Map 프론트엔드 손질
 2. Back 버튼 구현 
 
 
-6Comit - 2017.08.02
+6Commit - 2017.08.02
 1. 프론트엔드 뒷배경에 Uniminuto 추가
 2. 애매한 글씨 색 검정색으로 변경
 3. 불투명한 이미지 투명화 (연세대 , 월드프렌즈)
+
+
+
+7Commit - 2017.08.02
+1. SettingActivity에서 GPS Setting버튼 클릭시, GPS설정화면으로 전환기능 구현.
