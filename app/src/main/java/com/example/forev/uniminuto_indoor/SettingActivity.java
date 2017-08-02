@@ -1,7 +1,11 @@
 package com.example.forev.uniminuto_indoor;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,21 +16,33 @@ import android.widget.Toast;
  */
 
 public class SettingActivity  extends AppCompatActivity {
-    Button btn_credit;
-    Button btn_home;
-    Button btn_costList;
-    Button btn_myPage;
-    Button btn_back;
+    private Button btn_credit;
+    private Button btn_home;
+    private Button btn_costList;
+    private Button btn_myPage;
+    private Button btn_back;
+    private Button btn_gpsSetting;
+    private Button btn_vibraionOn;
+    private Button btn_vibrationOff;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+    //GPS
+    private LocationManager locationManager;
+//    //Vibration
+//    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        //back
+        //GPS Manager
+        locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
+//        //Vibration
+//        vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+        //back
         btn_back=(Button)findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +61,40 @@ public class SettingActivity  extends AppCompatActivity {
                SettingActivity.this.finish();
             }
         });
+
+        //GPS Setting
+        btn_gpsSetting = (Button)findViewById(R.id.btn_gpsSetting);
+        btn_gpsSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //GPS가 켜져있는지 체크
+                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    //GPS 설정화면으로 이동
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    intent.addCategory(Intent.CATEGORY_DEFAULT);
+                    startActivity(intent);
+                } else {
+                    //GPS 켜져있으면 메시지 띄움
+                    Toast.makeText(SettingActivity.this, "이미 GPS 동작 중입니다.", Toast.LENGTH_SHORT).show();
+                }
+            } //end of onClick
+        });
+// 아직 구현안됨
+//        //Vibration Setting
+//        btn_vibraionOn = (Button)findViewById(R.id.btn_vibrationOn);
+//        btn_vibraionOn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                vibrator.vibrate((1000*60));
+//            }
+//        });
+//        btn_vibrationOff = (Button)findViewById(R.id.btn_vibrationOff);
+//        btn_vibrationOff.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                vibrator.cancel();
+//            }
+//        });
 
 
         //하단버튼

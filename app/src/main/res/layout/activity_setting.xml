@@ -138,6 +138,7 @@
 
             </LinearLayout>
 
+            //GPS Setting
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -145,6 +146,7 @@
                 android:padding="15dp">
 
                 <Button
+                    android:id="@+id/btn_gpsSetting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Setting"
@@ -174,6 +176,8 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
+
+            //Vibration Setting
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -181,6 +185,7 @@
                 android:padding="15dp">
 
                 <Button
+                    android:id="@+id/btn_vibrationOn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="On" />
@@ -193,6 +198,7 @@
                 android:padding="15dp">
 
                 <Button
+                    android:id="@+id/btn_vibrationOff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Off" />
