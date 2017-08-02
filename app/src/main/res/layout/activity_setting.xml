@@ -7,13 +7,13 @@
     android:weightSum="100">
 
     // 상단 레이아웃
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="90"
+        android:layout_weight="89"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:background="@drawable/uniminuto_background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +61,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Notification"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textColor="#000000"/>
 
         </LinearLayout>
 
@@ -83,7 +84,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Push"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textColor="#000000"/>
 
             </LinearLayout>
 
@@ -96,7 +98,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="On" />
+                    android:text="On"
+                    android:textColor="#000000"/>
             </LinearLayout>
 
             <LinearLayout
@@ -108,7 +111,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Off" />
+                    android:text="Off"
+                    android:textColor="#000000"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -129,7 +133,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="GPS"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textColor="#000000"/>
 
             </LinearLayout>
 
@@ -142,7 +147,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Setting" />
+                    android:text="Setting"
+                    android:textColor="#000000"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -164,6 +170,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Vibration"
+                    android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -227,7 +234,6 @@
 
 
     </LinearLayout>
-
     // 사용할 공간
 
 
