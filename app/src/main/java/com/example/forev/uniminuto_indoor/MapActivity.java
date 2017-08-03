@@ -16,6 +16,7 @@ import com.customlbs.coordinates.GeoCoordinate;
 import com.customlbs.library.IndoorsException;
 import com.customlbs.library.IndoorsFactory;
 import com.customlbs.library.IndoorsLocationListener;
+import com.customlbs.library.LocalizationParameters;
 import com.customlbs.library.callbacks.LoadingBuildingStatus;
 import com.customlbs.library.model.Building;
 import com.customlbs.library.model.Zone;
@@ -33,6 +34,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     private static int lastProgress = 0;
     String APIKEY = "91c2793f-993f-454f-8802-96a3fe8cdb3c";
     long BuildingID = 795523136;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +99,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         });
         //하단버튼 끝
 
-    }
+    } //end of onCreate()
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
         // On android Marshmallow we also need to have active Location Services (GPS or Network based)
@@ -121,11 +123,23 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 this.startActivityForResult(
                         locationInSettingsIntent, REQUEST_CODE_LOCATION); //그화면으로 보내버린다.
             } else {
+                usingKalmanStabilisationFilter();
                 continueLoading(); //둘 다 연결되면 로딩 진행.
             }
         } else {
+            usingKalmanStabilisationFilter();
             continueLoading();
         }
+    }
+
+    //정확한 위치를 위한 필터사용
+    public void usingKalmanStabilisationFilter() {
+        LocalizationParameters parameters = new LocalizationParameters();
+        parameters.setUseKalmanStrategy(false);
+        parameters.setUseStabilizationFilter(true);
+        parameters.setStabilizationFilterTime(4000); // 4000 milliseconds 4s
+        IndoorsFactory.Builder indoorsBuilder = new IndoorsFactory.Builder();
+        indoorsBuilder.setLocalizationParameters(parameters);
     }
 
     @Override

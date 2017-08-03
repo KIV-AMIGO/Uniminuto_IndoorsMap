@@ -3,6 +3,7 @@ package com.example.forev.uniminuto_indoor;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.Settings;
@@ -28,8 +29,8 @@ public class SettingActivity  extends AppCompatActivity {
     private long backPressedTime = 0;
     //GPS
     private LocationManager locationManager;
-//    //Vibration
-//    private Vibrator vibrator;
+    //Audio Mode
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public class SettingActivity  extends AppCompatActivity {
         //GPS Manager
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
-//        //Vibration
-//        vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        //AudioMode Manager
+        audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
 
         //back
         btn_back=(Button)findViewById(R.id.btn_back);
@@ -79,23 +80,22 @@ public class SettingActivity  extends AppCompatActivity {
                 }
             } //end of onClick
         });
-// 아직 구현안됨
-//        //Vibration Setting
-//        btn_vibraionOn = (Button)findViewById(R.id.btn_vibrationOn);
-//        btn_vibraionOn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                vibrator.vibrate((1000*60));
-//            }
-//        });
-//        btn_vibrationOff = (Button)findViewById(R.id.btn_vibrationOff);
-//        btn_vibrationOff.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                vibrator.cancel();
-//            }
-//        });
 
+        //Vibration Setting
+        btn_vibraionOn = (Button)findViewById(R.id.btn_vibrationOn);
+        btn_vibraionOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+            }
+        });
+        btn_vibrationOff = (Button)findViewById(R.id.btn_vibrationOff);
+        btn_vibrationOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            }
+        });
 
         //하단버튼
         btn_home = (Button)findViewById(R.id.btn_home);
