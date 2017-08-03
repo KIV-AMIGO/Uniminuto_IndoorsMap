@@ -44,4 +44,10 @@
 
 
 7Commit - 2017.08.02
-1. SettingActivity에서 GPS Setting버튼 클릭시, GPS설정화면으로 전환기능 구현.
+1. SettingActivity에서 GPS Setting버튼 클릭시, GPS설정화면으로 전환기능 구현
+
+
+
+8Commit - 2017.08.03
+1. SettingActivity에서 진동On/Off기능 구현
+2. Kalman and Stabilisation Filter를 사용하여 Map에서 위치정확성을 높임
