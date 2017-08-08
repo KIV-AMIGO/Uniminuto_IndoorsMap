@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.customlbs.coordinates.GeoCoordinate;
@@ -34,12 +35,12 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     private static int lastProgress = 0;
     String APIKEY = "91c2793f-993f-454f-8802-96a3fe8cdb3c";
     long BuildingID = 795523136;
-
+    TextView infoTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        infoTxt = (TextView) findViewById(R.id.txt_gpsInfo);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
             //1. PermissionListener -> 권한이 허가 or 거부시 결과를 리턴해주는 리스너 생성.
             checkLocationIsEnabled();
@@ -217,6 +218,8 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         GeoCoordinate geoCoordinate = indoorsSurfaceFragment.getCurrentUserGpsPosition(); //유저 위치 얻어오는 함수.
 
         if (geoCoordinate != null) {
+
+            infoTxt.setText("User Locate : Floor "+indoorsSurfaceFragment.getCurrentFloor()+"\n Latitude "+geoCoordinate.getLatitude() + "Longitude "+geoCoordinate.getLongitude());
             Toast.makeText(
                     this,
                     "User is located at " + geoCoordinate.getLatitude() + "," //위도
