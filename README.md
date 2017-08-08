@@ -51,3 +51,8 @@
 8Commit - 2017.08.03
 1. SettingActivity에서 진동On/Off기능 구현
 2. Kalman and Stabilisation Filter를 사용하여 Map에서 위치정확성을 높임
+
+
+9Commit - 2017.08.08
+
+1. Map 화면에서 텍스트를 통해 사용자의 현재 층수와 위치를 나타내도록 수정.
