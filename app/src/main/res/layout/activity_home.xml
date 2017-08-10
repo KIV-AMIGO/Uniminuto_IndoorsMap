@@ -154,9 +154,8 @@
 
         <include
             android:id="@+id/bottom_layout"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
             layout="@layout/basic_layout"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="69dp" />
     </LinearLayout>
 </LinearLayout>

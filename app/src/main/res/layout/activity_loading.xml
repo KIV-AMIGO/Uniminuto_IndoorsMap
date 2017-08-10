@@ -4,24 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="100">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"
+        android:layout_weight="45"
+        android:orientation="vertical"
         android:weightSum="100">
+
         <ImageView
+            android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="100"
-            android:background="@drawable/uniminuto"
-            />
+            android:background="@drawable/logo_uni" />
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20" />
+        android:layout_weight="25" />
 
     <LinearLayout
         android:orientation="vertical"

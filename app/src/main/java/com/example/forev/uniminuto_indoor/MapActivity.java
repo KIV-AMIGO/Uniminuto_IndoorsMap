@@ -104,7 +104,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
         // On android Marshmallow we also need to have active Location Services (GPS or Network based)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //마시멜로버전 이상인 경우
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //경마시멜로버전 이상인 우
             LocationManager locationManager =
                     (LocationManager) getSystemService(LOCATION_SERVICE); //장소관리 매니저 생성.
             boolean isNetworkLocationProviderEnabled =
