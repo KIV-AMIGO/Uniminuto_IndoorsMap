@@ -18,7 +18,7 @@ public class CreditActivity extends AppCompatActivity {
     Button btn_back;
     Button btn_Map;
     Button btn_home;
-    Button btn_myPage;
+    Button btn_credit;
     Button btn_setting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +53,7 @@ public class CreditActivity extends AppCompatActivity {
                 CreditActivity.this.finish();
             }
         });
-        //btn_myPage = (Button)findViewById(R.id.btn_myPage);
-        //btn_myPage.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-        //    public void onClick(View v) {
 
-          //      startActivity(new Intent(getApplication(),MypageActivity.class));
-         //       CreditActivity.this.finish();
-        //    }
-        //});
         btn_setting = (Button)findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +62,17 @@ public class CreditActivity extends AppCompatActivity {
                 CreditActivity.this.finish();
             }
         });
+
+        btn_credit = (Button)findViewById(R.id.btn_credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View v) {
+
+              startActivity(new Intent(getApplication(),CreditActivity.class));
+               CreditActivity.this.finish();
+            }
+        });
         //하단버튼 끝
-
-
     }
 
     //back버튼 2번눌렀을때 종료됨

@@ -114,13 +114,13 @@ public class SettingActivity  extends AppCompatActivity {
                 SettingActivity.this.finish();
             }
         });
-        btn_myPage = (Button)findViewById(R.id.btn_myPage);
-        btn_myPage.setOnClickListener(new View.OnClickListener() {
+        Button btn_credit = (Button)findViewById(R.id.btn_credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //startActivity(new Intent(getApplication(),MypageActivity.class));
-                //SettingActivity.this.finish();
+                startActivity(new Intent(getApplication(),CreditActivity.class));
+                SettingActivity.this.finish();
             }
         });
         //하단버튼 끝

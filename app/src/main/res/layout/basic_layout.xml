@@ -30,16 +30,6 @@
             android:layout_weight="25"
             android:text="MAP">
         </Button>
-
-        // 마이페이지 버튼
-        <Button
-            android:id="@+id/btn_myPage"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="25"
-            android:text="MYPAGE">
-        </Button>
-
         // 세팅버튼
         <Button
             android:id="@+id/btn_setting"
@@ -48,6 +38,17 @@
             android:layout_weight="25"
             android:text="SETTING">
         </Button>
+
+        // 크레딧 버튼
+        <Button
+            android:id="@+id/btn_credit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="25"
+            android:text="CREDIT">
+        </Button>
+
+
 
     </LinearLayout>
 

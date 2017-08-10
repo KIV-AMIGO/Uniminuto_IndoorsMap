@@ -27,6 +27,8 @@ import com.customlbs.surface.library.IndoorsSurfaceFragment;
 
 import java.util.List;
 
+import static com.example.forev.uniminuto_indoor.R.id.btn_credit;
+
 public class MapActivity extends AppCompatActivity implements IndoorsLocationListener {
     public static final int REQUEST_CODE_PERMISSIONS = 34168; //Random request code, use your own
     public static final int REQUEST_CODE_LOCATION = 58774; //Random request code, use your own
@@ -78,23 +80,22 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 MapActivity.this.finish();
             }
         });
-        /**
-         btn_myPage = (Button)findViewById(R.id.btn_myPage);
-         btn_myPage.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-        startActivity(new Intent(getApplication(),MypageActivity.class));
-        HomeActivity.this.finish();
-        }
-        });
-         *
-         */
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
+                MapActivity.this.finish();
+            }
+        });
+
+        Button btn_credit = (Button)findViewById(R.id.btn_credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplication(),CreditActivity.class));
                 MapActivity.this.finish();
             }
         });

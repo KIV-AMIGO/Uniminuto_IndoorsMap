@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * Created by forev on 2017-07-25.
@@ -18,15 +19,15 @@ public class HomeActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //하단버튼
-
-        Button btn_home = (Button) findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
+        ImageView img_map = (ImageView)findViewById(R.id.img_map);
+        img_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),HomeActivity.class));
+                startActivity(new Intent(getApplication(),MapActivity.class));
                 HomeActivity.this.finish();
             }
         });
+
         Button btn_map = (Button) findViewById(R.id.btn_map);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,23 +36,21 @@ public class HomeActivity  extends AppCompatActivity {
                 HomeActivity.this.finish();
             }
         });
-        /**
-        btn_myPage = (Button)findViewById(R.id.btn_myPage);
-        btn_myPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getApplication(),MypageActivity.class));
-                HomeActivity.this.finish();
-            }
-        });
-         *
-         */
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
+                HomeActivity.this.finish();
+            }
+        });
+
+        Button btn_credit = (Button) findViewById(R.id.btn_credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplication(),CreditActivity.class));
                 HomeActivity.this.finish();
             }
         });

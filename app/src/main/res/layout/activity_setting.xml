@@ -229,16 +229,8 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="10" />
+                android:layout_weight="60" />
 
-            <Button
-                android:id="@+id/btn_credit"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"
-                android:gravity="center"
-                android:text="Credit"
-                android:textSize="25sp" />
         </LinearLayout>
 
 

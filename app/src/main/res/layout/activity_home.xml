@@ -6,145 +6,130 @@
     android:orientation="vertical"
     android:weightSum="100"
     >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:orientation="vertical"
-    android:layout_weight="89"
-    android:weightSum="100"
-    android:background="@drawable/uniminuto_background"
-    >
-    // 상단 레이아웃
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"
-        android:background="#f0e289"
-        android:weightSum="100"
-        android:orientation="horizontal">
+        android:layout_weight="89"
+        android:background="@drawable/uniminuto_background"
+        android:orientation="vertical"
+        android:weightSum="100">
+        // 상단 레이아웃
 
-        // 뒤로가기 버튼
-        <Space
-            android:layout_weight="10"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            />
-
-        // 제목
-        <TextView
-            android:layout_weight="80"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text = "Home"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="#000000"/>
-
-        // 나머지 공간
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"/>
-    </LinearLayout>
-
-
-    // 사용할 공간
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="80"
-        android:weightSum="100"
-        android:orientation="vertical">
-
-        //프로필
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="25"
+            android:layout_weight="9"
+            android:background="#f0e289"
             android:orientation="horizontal"
-            android:weightSum="10">
+            android:weightSum="100">
 
-            //프로필사진
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:src="@drawable/dankook" />
-
+            // 뒤로가기 버튼
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
-            //프로필 내용
-            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_weight="10" />
+
+            // 제목
+
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:weightSum="10"
-                android:orientation="vertical">
+                android:layout_weight="80"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/txt_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5"
-                    android:text="Lee SeungWoo"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
+            // 나머지 공간
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10" />
+        </LinearLayout>
 
 
-                <TextView
-                    android:id="@+id/txt_carNum"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5"
-                    android:text="Student"
-                    android:gravity="center"
-                    android:textColor="#000000"/>
+        // 사용할 공간
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            //프로필
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="32"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                //프로필사진
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
+
+                <ImageView
+                    android:id="@+id/img_map"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:src="@drawable/map" />
+
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
 
 
             </LinearLayout>
 
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"/>
-
-        //이번달 내역
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:orientation="vertical"
-            android:background="#9a9898">
-
-            <TextView
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="최근 검색 내역"
-                android:textSize="20sp"
-                android:gravity="center"/>
+                android:layout_height="0dp"
+                android:layout_weight="3" />
+
+            //이번달 내역
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#f0e289"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="최근 검색 내역"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="57"></ListView>
+
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"/>
-
-        <ListView
-            android:id="@+id/listview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="57"></ListView>
 
     </LinearLayout>
-
-
-</LinearLayout>
 
     // 하단 레이아웃
     <LinearLayout
