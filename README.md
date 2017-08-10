@@ -65,7 +65,8 @@
 3. Uniminuto 로고 이미지 변경.
 
 11Commit - 17.08.10
-1. credit에 아미고 로고 추가
-2. menu구성 Mypage -> setting
+1.  아미고 로고 이미지 생성
+2. credit에 아미고 로고 추가
+3. menu구성 Mypage -> setting
                  setting ->credit
 으로 변경
