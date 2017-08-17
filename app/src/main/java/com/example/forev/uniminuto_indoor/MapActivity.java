@@ -1,5 +1,7 @@
 package com.example.forev.uniminuto_indoor;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Build;
@@ -7,10 +9,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,7 @@ import com.customlbs.library.IndoorsFactory;
 import com.customlbs.library.IndoorsLocationListener;
 import com.customlbs.library.LocalizationParameters;
 import com.customlbs.library.callbacks.LoadingBuildingStatus;
+import com.customlbs.library.callbacks.RoutingCallback;
 import com.customlbs.library.model.Building;
 import com.customlbs.library.model.Zone;
 import com.customlbs.shared.Coordinate;
@@ -27,6 +32,8 @@ import com.customlbs.surface.library.IndoorsSurface;
 import com.customlbs.surface.library.IndoorsSurfaceFactory;
 import com.customlbs.surface.library.IndoorsSurfaceFragment;
 import com.customlbs.surface.library.IndoorsSurfaceQuickAction;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.forev.uniminuto_indoor.R.id.btn_credit;
@@ -41,10 +48,13 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     String APIKEY = "91c2793f-993f-454f-8802-96a3fe8cdb3c";
     long BuildingID = 795523136;
     TextView infoTxt;
+    private ImageView img_cancle ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        img_cancle =(ImageView)findViewById(R.id.img_cancle);
+
         infoTxt = (TextView) findViewById(R.id.txt_gpsInfo);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
             //1. PermissionListener -> 권한이 허가 or 거부시 결과를 리턴해주는 리스너 생성.
@@ -103,17 +113,72 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
         //하단버튼 끝
+
+        img_cancle.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                indoorsSurfaceFragment.getSurfaceState().setRoutingPath(null);
+                indoorsSurfaceFragment.updateSurface();
+                img_cancle.setVisibility(View.INVISIBLE);
+            }
+        });
+
         indoorsSurfaceFragment.registerOnSurfaceLongClickListener(new IndoorsSurface.OnSurfaceLongClickListener() {
             @Override
-            public void onLongClick(Coordinate coordinate) {
-                //GeoCoordinate geoCoordinate = new GeoCoordinate();
-                //double latitude = geoCoordinate.getLatitude();
-                Toast.makeText(MapActivity.this, "hihihi", Toast.LENGTH_LONG).show();
+            public void onLongClick(final Coordinate coordinate) {
+                Context context;
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapActivity.this
+                        );
+
+                alertDialogBuilder.setTitle("경로 설정");
+
+                alertDialogBuilder
+                        .setMessage("경로를 설정하시겠습니까?")
+                        .setCancelable(false)
+                        .setPositiveButton("예",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(
+                                            DialogInterface dialog, int id) {
+                                            routing(coordinate);
+                                    }
+                                })
+                        .setNegativeButton("아니오",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(
+                                            DialogInterface dialog, int id) {
+                                        // 다이얼로그를 취소한다
+                                        dialog.cancel();
+                                    }
+                                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
+
             }
         });
 
     } //end of onCreate()
+    private void routing(Coordinate end){
+        Coordinate start = new Coordinate(93808,45276,8);
+        //indoorsSurfaceFragment.getCurrentUserPosition();
+        //double latitude = geoCoordinate.getLatitude();
+        indoorsSurfaceFragment.getIndoors().getRouteAToB(start, end, new RoutingCallback() {
+            @Override
+            public void onError(IndoorsException arg0) {
+                // TODO Auto-generated method stub
+                Toast.makeText(MapActivity.this, "error", Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void setRoute(ArrayList<Coordinate> route) {
+                indoorsSurfaceFragment.getSurfaceState().setRoutingPath(route);
+                // this is how to enable route snapping starting with version 3.8
+                IndoorsFactory.getInstance().enableRouteSnapping(route);
+                indoorsSurfaceFragment.updateSurface();
+                img_cancle.setVisibility(View.VISIBLE);
+            }
+        });
+    }
 
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
@@ -235,10 +300,10 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         if (geoCoordinate != null) {
 
             infoTxt.setText("User Locate : Floor "+indoorsSurfaceFragment.getCurrentFloor()+"\n Latitude "+geoCoordinate.getLatitude() + "Longitude "+geoCoordinate.getLongitude());
-            //Toast.makeText(
-            //        this,
-            //        "User is located at " + geoCoordinate.getLatitude() + "," //위도
-             //               + geoCoordinate.getLongitude(), Toast.LENGTH_SHORT).show(); //경도
+            Toast.makeText(
+                    this,
+                    "User is located at " + geoCoordinate.getLatitude() + "," //위도
+                            + geoCoordinate.getLongitude()+ "   "+indoorsSurfaceFragment.getCurrentFloor(), Toast.LENGTH_SHORT).show(); //경도
         }
     }
 
