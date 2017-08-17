@@ -9,6 +9,7 @@ import android.provider.Settings;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +23,10 @@ import com.customlbs.library.callbacks.LoadingBuildingStatus;
 import com.customlbs.library.model.Building;
 import com.customlbs.library.model.Zone;
 import com.customlbs.shared.Coordinate;
+import com.customlbs.surface.library.IndoorsSurface;
 import com.customlbs.surface.library.IndoorsSurfaceFactory;
 import com.customlbs.surface.library.IndoorsSurfaceFragment;
-
+import com.customlbs.surface.library.IndoorsSurfaceQuickAction;
 import java.util.List;
 
 import static com.example.forev.uniminuto_indoor.R.id.btn_credit;
@@ -33,6 +35,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     public static final int REQUEST_CODE_PERMISSIONS = 34168; //Random request code, use your own
     public static final int REQUEST_CODE_LOCATION = 58774; //Random request code, use your own
     private IndoorsSurfaceFragment indoorsSurfaceFragment;
+    private IndoorsSurfaceQuickAction indoorsSurfaceQuickAction;
     private Toast progressToast;
     private static int lastProgress = 0;
     String APIKEY = "91c2793f-993f-454f-8802-96a3fe8cdb3c";
@@ -55,7 +58,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
 
         Button btn_back = (Button) findViewById(R.id.btn_back);
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),HomeActivity.class));
@@ -65,7 +68,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         //하단버튼
 
         Button btn_home = (Button) findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
+        btn_home.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),HomeActivity.class));
@@ -73,7 +76,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
         Button btn_map = (Button) findViewById(R.id.btn_map);
-        btn_map.setOnClickListener(new View.OnClickListener() {
+        btn_map.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),MapActivity.class));
@@ -82,7 +85,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         });
 
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
-        btn_setting.setOnClickListener(new View.OnClickListener() {
+        btn_setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
@@ -91,7 +94,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         });
 
         Button btn_credit = (Button)findViewById(R.id.btn_credit);
-        btn_credit.setOnClickListener(new View.OnClickListener() {
+        btn_credit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -100,8 +103,18 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
         //하단버튼 끝
+        indoorsSurfaceFragment.registerOnSurfaceLongClickListener(new IndoorsSurface.OnSurfaceLongClickListener() {
+            @Override
+            public void onLongClick(Coordinate coordinate) {
+                //GeoCoordinate geoCoordinate = new GeoCoordinate();
+                //double latitude = geoCoordinate.getLatitude();
+                Toast.makeText(MapActivity.this, "hihihi", Toast.LENGTH_LONG).show();
+            }
+        });
 
     } //end of onCreate()
+
+
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
         // On android Marshmallow we also need to have active Location Services (GPS or Network based)
@@ -149,6 +162,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             // Check if the user has really enabled Location services.
             checkLocationIsEnabled();
     }
+
     // At this point we can continue to load
 // the Indoo.rs SDK as we did with previous
 // android versions
@@ -221,10 +235,10 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         if (geoCoordinate != null) {
 
             infoTxt.setText("User Locate : Floor "+indoorsSurfaceFragment.getCurrentFloor()+"\n Latitude "+geoCoordinate.getLatitude() + "Longitude "+geoCoordinate.getLongitude());
-            Toast.makeText(
-                    this,
-                    "User is located at " + geoCoordinate.getLatitude() + "," //위도
-                            + geoCoordinate.getLongitude(), Toast.LENGTH_SHORT).show(); //경도
+            //Toast.makeText(
+            //        this,
+            //        "User is located at " + geoCoordinate.getLatitude() + "," //위도
+             //               + geoCoordinate.getLongitude(), Toast.LENGTH_SHORT).show(); //경도
         }
     }
 

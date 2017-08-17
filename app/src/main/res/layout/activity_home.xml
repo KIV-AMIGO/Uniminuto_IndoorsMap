@@ -141,6 +141,6 @@
             android:id="@+id/bottom_layout"
             layout="@layout/basic_layout"
             android:layout_width="match_parent"
-            android:layout_height="69dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 </LinearLayout>
