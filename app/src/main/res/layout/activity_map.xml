@@ -27,7 +27,7 @@
             android:layout_weight="80"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text = "MAP"
+            android:text = "Mapa"
             android:gravity="center"
             android:textSize="20sp"
             android:textColor="#000000"/>

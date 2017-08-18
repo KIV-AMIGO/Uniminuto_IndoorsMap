@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="80"
                 android:gravity="center"
-                android:text="Home"
+                android:text="Menú principal"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="최근 검색 내역"
+                    android:text="Listado de búsqueda"
                     android:textSize="20sp" />
             </LinearLayout>
 

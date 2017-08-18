@@ -130,19 +130,19 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapActivity.this
                         );
 
-                alertDialogBuilder.setTitle("경로 설정");
+                alertDialogBuilder.setTitle("Configuración de ruta");
 
                 alertDialogBuilder
-                        .setMessage("경로를 설정하시겠습니까?")
+                        .setMessage("¿Va configurar la ruta?")
                         .setCancelable(false)
-                        .setPositiveButton("예",
+                        .setPositiveButton("Sí",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(
                                             DialogInterface dialog, int id) {
                                             routing(coordinate);
                                     }
                                 })
-                        .setNegativeButton("아니오",
+                        .setNegativeButton("No",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(
                                             DialogInterface dialog, int id) {
@@ -159,14 +159,15 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
 
     } //end of onCreate()
     private void routing(Coordinate end){
-        Coordinate start = new Coordinate(93808,45276,8);
-        //indoorsSurfaceFragment.getCurrentUserPosition();
+        Coordinate start = indoorsSurfaceFragment.getCurrentUserPosition();;
+                // new Coordinate(93808,45276,8);
+        //
         //double latitude = geoCoordinate.getLatitude();
         indoorsSurfaceFragment.getIndoors().getRouteAToB(start, end, new RoutingCallback() {
             @Override
             public void onError(IndoorsException arg0) {
                 // TODO Auto-generated method stub
-                Toast.makeText(MapActivity.this, "error", Toast.LENGTH_LONG).show();
+                Toast.makeText(MapActivity.this, "Error", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -196,7 +197,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 // Only if both providers are disabled
                 // we need to ask the user to do something
                 Toast.makeText(this,
-                        "Location is off, enable it in system settings.",
+                        "La ubicación está apagada, enciéndalo en ajustes.", //La ubicación está apagada, enciéndalo en ajustes
                         Toast.LENGTH_LONG).show(); //세팅에서 열어라
                 Intent locationInSettingsIntent =
                         new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS); //세팅창에대한 인텐트 설정.
@@ -376,4 +377,6 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     public void buildingLoadingCanceled() {
         // Loading of building was cancelled
     }
+
+
 }

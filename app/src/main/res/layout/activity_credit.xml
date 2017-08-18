@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="80"
                 android:gravity="center"
-                android:text="Credit"
+                android:text="Crédito"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text="   IT   이상규 BackEnd"
+                android:text="   IT   Sang Gyu Lee BackEnd"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text="   IT   이승우 FrontEnd"
+                android:text="   IT   Seung Woo Lee FrontEnd"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text=" 언어 차여명 "
+                android:text=" Traducción Yo Myong Cha "
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -160,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text=" 문화 황지현"
+                android:text=" Cultura Ji Hyeon Hwang"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 

@@ -37,7 +37,7 @@
                 android:layout_weight="80"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text = "Setting"
+                android:text = "Ajuste"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textColor="#000000"/>
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Notification"
+                android:text="Notificación"
                 android:textSize="20sp"
                 android:textColor="#000000"/>
 
@@ -132,7 +132,7 @@
                     android:id="@+id/btn_gpsSetting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Setting"
+                    android:text="Ajuste"
                     android:textColor="#000000"/>
             </LinearLayout>
 
@@ -154,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Vibration"
+                    android:text="Vibración"
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -171,7 +171,8 @@
                     android:id="@+id/btn_vibrationOn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="On" />
+                    android:textSize="8dp"
+                    android:text="Encendido" />
             </LinearLayout>
 
             <LinearLayout
@@ -184,7 +185,8 @@
                     android:id="@+id/btn_vibrationOff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Off" />
+                    android:textSize="8dp"
+                    android:text="Apagado" />
 
             </LinearLayout>
         </LinearLayout>

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by forev on 2017-07-25.
@@ -56,4 +57,5 @@ public class HomeActivity  extends AppCompatActivity {
         });
         //하단버튼 끝
     }
+
 }

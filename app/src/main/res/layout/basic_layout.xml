@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="25"
-            android:text= "HOME">
+            android:text= "Menú Principal">
         </Button>
 
         // 요금조회 버튼
@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="25"
-            android:text="MAP">
+            android:text="Mapa">
         </Button>
         // 세팅버튼
         <Button
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="25"
-            android:text="SETTING">
+            android:text="Ajustes">
         </Button>
 
         // 크레딧 버튼
@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="25"
-            android:text="CREDIT">
+            android:text="Crédito">
         </Button>
 
 

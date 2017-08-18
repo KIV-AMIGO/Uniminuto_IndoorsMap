@@ -88,7 +88,7 @@ public class CreditActivity extends AppCompatActivity {
         else //2초안에 한번만 눌렀을 경우
         {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
+            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
         }
     }
 }
