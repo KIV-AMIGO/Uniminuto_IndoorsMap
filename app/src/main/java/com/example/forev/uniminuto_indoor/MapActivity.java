@@ -77,25 +77,16 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         });
         //하단버튼
 
-        Button btn_home = (Button) findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplication(),HomeActivity.class));
-                MapActivity.this.finish();
-            }
-        });
         Button btn_map = (Button) findViewById(R.id.btn_map);
-        btn_map.setOnClickListener(new OnClickListener() {
+        btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),MapActivity.class));
                 MapActivity.this.finish();
             }
         });
-
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
-        btn_setting.setOnClickListener(new OnClickListener() {
+        btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
@@ -103,12 +94,12 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
 
-        Button btn_credit = (Button)findViewById(R.id.btn_credit);
-        btn_credit.setOnClickListener(new OnClickListener() {
+        Button btn_menual = (Button) findViewById(R.id.btn_menual);
+        btn_menual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplication(),CreditActivity.class));
+                startActivity(new Intent(getApplication(),MenualActivity.class));
                 MapActivity.this.finish();
             }
         });
@@ -159,7 +150,8 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
 
     } //end of onCreate()
     private void routing(Coordinate end){
-        Coordinate start = indoorsSurfaceFragment.getCurrentUserPosition();;
+        Coordinate start =  new Coordinate(93808,45276,8); //test
+                // indoorsSurfaceFragment.getCurrentUserPosition();;
                 // new Coordinate(93808,45276,8);
         //
         //double latitude = geoCoordinate.getLatitude();

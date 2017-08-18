@@ -26,6 +26,10 @@
         <activity android:name=".SettingActivity">
         </activity>
         <activity android:name=".MapActivity">
+
+        </activity>
+        <activity android:name=".MenualActivity">
+
         </activity>
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

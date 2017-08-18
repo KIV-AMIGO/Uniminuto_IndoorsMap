@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
@@ -15,46 +16,34 @@ public class CreditActivity extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
 
-    Button btn_back;
-    Button btn_Map;
-    Button btn_home;
-    Button btn_credit;
-    Button btn_setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit);
 
-        btn_back=(Button)findViewById(R.id.btn_back);
+        Button btn_back = (Button) findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),SettingActivity.class));
+                startActivity(new Intent(getApplication(),MenualActivity.class));
                 CreditActivity.this.finish();
             }
         });
 
 
         //하단버튼
-        btn_home = (Button)findViewById(R.id.btn_home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplication(),HomeActivity.class));
-                CreditActivity.this.finish();
-            }
-        });
-        btn_Map = (Button)findViewById(R.id.btn_map);
-        btn_Map.setOnClickListener(new View.OnClickListener() {
+
+        Button btn_map = (Button) findViewById(R.id.btn_map);
+        btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),MapActivity.class));
                 CreditActivity.this.finish();
             }
         });
-
-        btn_setting = (Button)findViewById(R.id.btn_setting);
+        Button btn_setting = (Button) findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,13 +52,13 @@ public class CreditActivity extends AppCompatActivity {
             }
         });
 
-        btn_credit = (Button)findViewById(R.id.btn_credit);
-        btn_credit.setOnClickListener(new View.OnClickListener() {
-           @Override
+        Button btn_menual = (Button) findViewById(R.id.btn_menual);
+        btn_menual.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
 
-              startActivity(new Intent(getApplication(),CreditActivity.class));
-               CreditActivity.this.finish();
+                startActivity(new Intent(getApplication(),MenualActivity.class));
+                CreditActivity.this.finish();
             }
         });
         //하단버튼 끝

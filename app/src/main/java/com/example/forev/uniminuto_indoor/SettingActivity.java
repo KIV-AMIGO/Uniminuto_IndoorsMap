@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
@@ -38,33 +39,24 @@ public class SettingActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         //GPS Manager
-        locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         //AudioMode Manager
         audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
 
         //back
-        btn_back=(Button)findViewById(R.id.btn_back);
+        btn_back = (Button) findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),HomeActivity.class));
+                startActivity(new Intent(getApplication(), HomeActivity.class));
                 SettingActivity.this.finish();
-            }
-        });
-        //크레딧 버튼
-        btn_credit = (Button)findViewById(R.id.btn_credit);
-        btn_credit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplication(),CreditActivity.class));
-               SettingActivity.this.finish();
             }
         });
 
         //GPS Setting
-        btn_gpsSetting = (Button)findViewById(R.id.btn_gpsSetting);
+        btn_gpsSetting = (Button) findViewById(R.id.btn_gpsSetting);
         btn_gpsSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,14 +74,14 @@ public class SettingActivity  extends AppCompatActivity {
         });
 
         //Vibration Setting
-        btn_vibraionOn = (Button)findViewById(R.id.btn_vibrationOn);
+        btn_vibraionOn = (Button) findViewById(R.id.btn_vibrationOn);
         btn_vibraionOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
             }
         });
-        btn_vibrationOff = (Button)findViewById(R.id.btn_vibrationOff);
+        btn_vibrationOff = (Button) findViewById(R.id.btn_vibrationOff);
         btn_vibrationOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,34 +90,43 @@ public class SettingActivity  extends AppCompatActivity {
         });
 
         //하단버튼
-        btn_home = (Button)findViewById(R.id.btn_home);
+
+        Button btn_home = (Button) findViewById(R.id.btn_home);
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),HomeActivity.class));
+                startActivity(new Intent(getApplication(), HomeActivity.class));
                 SettingActivity.this.finish();
             }
         });
-        btn_costList = (Button)findViewById(R.id.btn_map);
-        btn_costList.setOnClickListener(new View.OnClickListener() {
+        Button btn_map = (Button) findViewById(R.id.btn_map);
+        btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),MapActivity.class));
+                startActivity(new Intent(getApplication(), MapActivity.class));
                 SettingActivity.this.finish();
             }
         });
-        Button btn_credit = (Button)findViewById(R.id.btn_credit);
-        btn_credit.setOnClickListener(new View.OnClickListener() {
+        Button btn_setting = (Button) findViewById(R.id.btn_setting);
+        btn_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), SettingActivity.class));
+                SettingActivity.this.finish();
+            }
+        });
+
+        Button btn_menual = (Button) findViewById(R.id.btn_menual);
+        btn_menual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplication(),CreditActivity.class));
+                startActivity(new Intent(getApplication(), CreditActivity.class));
                 SettingActivity.this.finish();
             }
         });
         //하단버튼 끝
     }
-
     //back버튼 2번눌렀을때 종료됨
     @Override
     public void onBackPressed() {

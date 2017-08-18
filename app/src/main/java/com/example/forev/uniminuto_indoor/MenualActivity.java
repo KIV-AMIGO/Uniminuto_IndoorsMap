@@ -9,27 +9,37 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
- * Created by forev on 2017-07-25.
+ * Created by forev on 2017-08-18.
  */
 
-public class HomeActivity  extends AppCompatActivity {
-
+public class MenualActivity extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-    Button btn_menual;
-    ImageView img_map;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_menual);
 
-        //하단버튼
-        img_map = (ImageView)findViewById(R.id.img_map);
-        img_map.setOnClickListener(new View.OnClickListener() {
+        Button btn_back = (Button) findViewById(R.id.btn_back);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(),MapActivity.class));
-                HomeActivity.this.finish();
+                startActivity(new Intent(getApplication(),HomeActivity.class));
+                MenualActivity.this.finish();
+            }
+        });
+
+
+        //하단버튼
+        Button btn_home = (Button) findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),HomeActivity.class));
+                MenualActivity.this.finish();
             }
         });
 
@@ -38,7 +48,7 @@ public class HomeActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),MapActivity.class));
-                HomeActivity.this.finish();
+                MenualActivity.this.finish();
             }
         });
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
@@ -46,21 +56,32 @@ public class HomeActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),SettingActivity.class));
-                HomeActivity.this.finish();
+                MenualActivity.this.finish();
             }
         });
 
-        btn_menual = (Button) findViewById(R.id.btn_menual);
+        Button btn_menual = (Button) findViewById(R.id.btn_menual);
         btn_menual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplication(),MenualActivity.class));
-                HomeActivity.this.finish();
+                MenualActivity.this.finish();
             }
         });
         //하단버튼 끝
+
+        Button btn_credit = (Button)findViewById(R.id.btn_credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplication(),CreditActivity.class));
+                MenualActivity.this.finish();
+            }
+        });
     }
+
     //back버튼 2번눌렀을때 종료됨
     @Override
     public void onBackPressed() {
@@ -77,4 +98,5 @@ public class HomeActivity  extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
         }
     }
+
 }

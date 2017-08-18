@@ -133,7 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Ajuste"
-                    android:textColor="#000000"/>
+                    android:background="@drawable/button_notibar_didit"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
 
         </LinearLayout>
@@ -172,6 +173,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="8dp"
+                    android:background="@drawable/button_notibar_didit"
+                    android:textColor="#FFFFFF"
                     android:text="Encendido" />
             </LinearLayout>
 
@@ -186,6 +189,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="8dp"
+                    android:background="@drawable/button_notibar_didit"
+                    android:textColor="#FFFFFF"
                     android:text="Apagado" />
 
             </LinearLayout>
@@ -206,7 +211,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="20"
-                android:text="위 세가지 기능은 부가기능인 푸쉬를 구현시 추가 예정." />
+                android:text="-" />
 
             <Space
                 android:layout_width="match_parent"
