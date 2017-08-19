@@ -25,6 +25,7 @@ import com.customlbs.library.IndoorsLocationListener;
 import com.customlbs.library.LocalizationParameters;
 import com.customlbs.library.callbacks.LoadingBuildingStatus;
 import com.customlbs.library.callbacks.RoutingCallback;
+import com.customlbs.library.callbacks.ZoneCallback;
 import com.customlbs.library.model.Building;
 import com.customlbs.library.model.Zone;
 import com.customlbs.shared.Coordinate;
@@ -49,6 +50,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     long BuildingID = 795523136;
     TextView infoTxt;
     private ImageView img_cancle ;
+    private ArrayList<String> zoneList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +66,9 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         else{ //버전이 마시멜로 이하인 경우
             continueLoading();
         }
+
         //back 뒤로가기 버튼
-
         Button btn_back = (Button) findViewById(R.id.btn_back);
-
         btn_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,8 +76,8 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 MapActivity.this.finish();
             }
         });
-        //하단버튼
 
+        //하단버튼
         Button btn_map = (Button) findViewById(R.id.btn_map);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +86,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 MapActivity.this.finish();
             }
         });
+
         Button btn_setting = (Button) findViewById(R.id.btn_setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +106,26 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
         //하단버튼 끝
+
+        // search버튼 클릭시, ListView로 Zone목록 뜨게함
+        Button btn_search = (Button) findViewById(R.id.btn_search);
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zoneList = new ArrayList<String>();
+                IndoorsFactory.getInstance().getZones(indoorsSurfaceFragment.getBuilding(), new ZoneCallback() {
+                    @Override
+                    public void setZones(ArrayList<Zone> arrayList) {
+                        for(int i = 0; i < arrayList.size(); i++) {
+                            zoneList.add(arrayList.get(i).getName());
+                        }
+                        Intent it = new Intent(getApplication(), ZoneListActivity.class);
+                        it.putExtra("zoneList", zoneList);
+                        startActivity(it);
+                    }
+                });
+            } //end of onClick
+        });
 
         img_cancle.setOnClickListener(new OnClickListener() {
             @Override
@@ -143,12 +165,10 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                                 });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
-
-
             }
         });
-
     } //end of onCreate()
+
     private void routing(Coordinate end){
         Coordinate start =  new Coordinate(93808,45276,8); //test
                 // indoorsSurfaceFragment.getCurrentUserPosition();;
@@ -172,7 +192,6 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             }
         });
     }
-
 
     private void checkLocationIsEnabled() { //장소가 연결되었는지 체크
         // On android Marshmallow we also need to have active Location Services (GPS or Network based)
