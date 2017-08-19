@@ -32,7 +32,7 @@
         <activity android:name=".SettingActivity"></activity>
         <activity android:name=".MapActivity"></activity>
         <activity android:name=".MenualActivity"></activity>
-        <activity android:name=".ZoneListActivity"></activity>
+        <activity android:name=".ZoneListActivity" android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

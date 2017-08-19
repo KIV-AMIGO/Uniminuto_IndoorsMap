@@ -1,9 +1,11 @@
 package com.example.forev.uniminuto_indoor;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -17,13 +19,14 @@ import com.customlbs.surface.library.IndoorsSurfaceFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZoneListActivity extends AppCompatActivity {
+public class ZoneListActivity extends Activity {
 
     private ListView zoneListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_zone_list);
 
         ArrayList<String> zoneList = (ArrayList<String>) getIntent().getSerializableExtra("zoneList");
