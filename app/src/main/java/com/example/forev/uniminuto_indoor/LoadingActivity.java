@@ -28,26 +28,25 @@ public class LoadingActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
-            public void onPermissionGranted() { //권한이 모두 허용된 후 실행.
-                Toast.makeText(LoadingActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
-                //3초동안 로딩화면이 뜨게하기.
+            public void onPermissionGranted() {
+
                 intent = new Intent(getApplicationContext(),LoginActivity.class);
                 Handler handler = new Handler(){
                     public void handleMessage(Message msg){
-                        startActivity(intent); //로딩시스템
+                        startActivity(intent);
                         LoadingActivity.this.finish();
                     }
-                }; //핸들러가 수행되었을때 일어나는일.
+                };
 
                 ProgressBar progress = (ProgressBar) findViewById(R.id.loadingBar) ;
                 //progress.setProgress(value) ;
 
-                handler.sendEmptyMessageDelayed(0,3000); //3초후 발생하게하기
+                handler.sendEmptyMessageDelayed(0,3000);
             }
 
             @Override
-            public void onPermissionDenied(ArrayList<String> deniedPermissions) { //거부된 권한 목록을 제공.
-                Toast.makeText(LoadingActivity.this, "권한이 거부되어 실행할 수 없습니다.\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                Toast.makeText(LoadingActivity.this, "No se puede realizar porque la permisión ha sido rechazada.\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
                 LoadingActivity.this.finishAffinity(); //종료
             }
 
@@ -55,8 +54,8 @@ public class LoadingActivity  extends AppCompatActivity {
         };
         new TedPermission(this)
                 .setPermissionListener(permissionlistener)
-                .setRationaleMessage("구글 로그인을 하기 위해서는 위치 접근 권한이 필요해요")
-                .setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
+                .setRationaleMessage("Para utilizar la aplicación se necesita la permisión de acercaminto de ubicación")
+                .setDeniedMessage("No se puede utilizar la aplicación si la niega.\nPero [Ajuste] > [Permisión] aquí se puede encender la permisión")
                 .setPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .check();
 

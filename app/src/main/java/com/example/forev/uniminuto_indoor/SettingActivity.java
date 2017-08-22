@@ -60,15 +60,15 @@ public class SettingActivity  extends AppCompatActivity {
         btn_gpsSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //GPS가 켜져있는지 체크
+
                 if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    //GPS 설정화면으로 이동
+
                     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     intent.addCategory(Intent.CATEGORY_DEFAULT);
                     startActivity(intent);
                 } else {
-                    //GPS 켜져있으면 메시지 띄움
-                    Toast.makeText(SettingActivity.this, "이미 GPS 동작 중입니다.", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(SettingActivity.this, "El GPS ya está funcionando", Toast.LENGTH_SHORT).show();
                 }
             } //end of onClick
         });
@@ -121,26 +121,26 @@ public class SettingActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplication(), CreditActivity.class));
+                startActivity(new Intent(getApplication(), MenualActivity.class));
                 SettingActivity.this.finish();
             }
         });
-        //하단버튼 끝
+
     }
-    //back버튼 2번눌렀을때 종료됨
+
     @Override
     public void onBackPressed() {
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) //2초안에 한번더 눌렀을경우.
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
         {
             super.onBackPressed();
         }
-        else //2초안에 한번만 눌렀을 경우
+        else //
         {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
+            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show();
         }
     }
 }

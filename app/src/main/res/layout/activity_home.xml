@@ -111,8 +111,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Listado de búsqueda"
-                    android:textSize="20sp" />
+                    android:text="¡Bienvenidos!"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
             </LinearLayout>
 
             <Space
@@ -120,11 +121,11 @@
                 android:layout_height="0dp"
                 android:layout_weight="10" />
 
-            <ListView
-                android:id="@+id/listview"
+            <Space
+
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="57"></ListView>
+                android:layout_weight="57"></Space>
 
         </LinearLayout>
 

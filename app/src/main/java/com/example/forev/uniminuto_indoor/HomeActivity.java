@@ -23,7 +23,7 @@ public class HomeActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //하단버튼
+
         img_map = (ImageView)findViewById(R.id.img_map);
         img_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,22 +59,22 @@ public class HomeActivity  extends AppCompatActivity {
                 HomeActivity.this.finish();
             }
         });
-        //하단버튼 끝
+
     }
-    //back버튼 2번눌렀을때 종료됨
+
     @Override
     public void onBackPressed() {
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) //2초안에 한번더 눌렀을경우.
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
         {
             super.onBackPressed();
         }
         else //2초안에 한번만 눌렀을 경우
         {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
+            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show();
         }
     }
 }

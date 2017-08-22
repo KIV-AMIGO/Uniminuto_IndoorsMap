@@ -33,8 +33,15 @@ public class CreditActivity extends AppCompatActivity {
         });
 
 
-        //하단버튼
 
+        Button btn_home = (Button) findViewById(R.id.btn_home);
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), HomeActivity.class));
+                CreditActivity.this.finish();
+            }
+        });
         Button btn_map = (Button) findViewById(R.id.btn_map);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,23 +68,23 @@ public class CreditActivity extends AppCompatActivity {
                 CreditActivity.this.finish();
             }
         });
-        //하단버튼 끝
+
     }
 
-    //back버튼 2번눌렀을때 종료됨
+
     @Override
     public void onBackPressed() {
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) //2초안에 한번더 눌렀을경우.
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
         {
             super.onBackPressed();
         }
         else //2초안에 한번만 눌렀을 경우
         {
             backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show(); //꺼진다는 텍스트를 띄워준다.
+            Toast.makeText(getApplicationContext(), "Sí apacha de nuevo se concluirá la aplicación.", Toast.LENGTH_SHORT).show();
         }
     }
 }

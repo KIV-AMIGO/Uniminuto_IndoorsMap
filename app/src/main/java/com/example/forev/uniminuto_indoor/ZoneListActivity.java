@@ -31,7 +31,7 @@ public class ZoneListActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, zoneList);
         zoneListView.setAdapter(adapter);
 
-        // listView에서 목적지 클릭 시, MapActivity로 전환
+        // Cuando se apacha el destino el listView, se cambia a MapActivity
         zoneListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(ZoneListActivity.this, zoneList.get(position), Toast.LENGTH_LONG).show();
@@ -42,7 +42,7 @@ public class ZoneListActivity extends Activity {
             }
         });
 
-        //뒤로가기 버튼
+
         Button btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override

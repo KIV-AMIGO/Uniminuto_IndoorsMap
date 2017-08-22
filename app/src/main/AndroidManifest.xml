@@ -19,20 +19,24 @@
         android:roundIcon="@mipmap/ic_launcher_uni"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".LoadingActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".LoadingActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity">
+
         </activity>
-        <activity android:name=".CreditActivity"></activity>
-        <activity android:name=".SettingActivity"></activity>
-        <activity android:name=".MapActivity"></activity>
-        <activity android:name=".MenualActivity"></activity>
-        <activity android:name=".ZoneListActivity" android:theme="@android:style/Theme.Dialog"></activity>
+        <activity android:name=".CreditActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".MapActivity" />
+        <activity android:name=".MenualActivity" />
+        <activity
+            android:name=".ZoneListActivity"
+            android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>

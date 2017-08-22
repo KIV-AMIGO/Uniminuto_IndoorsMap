@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text="   IT   Sang Gyu Lee BackEnd"
+                android:text="          IT        Sang Gyu Lee"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text="   IT   Seung Woo Lee FrontEnd"
+                android:text="          IT        Seung Woo Lee"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -160,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
-                android:text=" Cultura Ji Hyeon Hwang"
+                android:text="    Cultura    Ji Hyeon Hwang"
                 android:textColor="#000000"
                 android:textSize="26sp" />
 

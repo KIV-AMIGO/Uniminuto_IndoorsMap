@@ -13,15 +13,15 @@ import android.widget.Toast;
  */
 
 public class LoginActivity extends AppCompatActivity {
-    private String ID = "Uniminuto";
-    private String PASSWORD = "1234";
+    private String ID = "Uniminuto"; //El nombre de usuario
+    private String PASSWORD = "1234"; //La contraseña
     Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //로그인버튼 클릭
+
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                     LoginActivity.this.finish();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Login fail.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error de Login.", Toast.LENGTH_SHORT).show();
 
                 }
             }
