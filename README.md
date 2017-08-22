@@ -108,3 +108,8 @@
 
 15Commit - 17.08.18
 1. MapActivity에서 search버튼 클릭시, ZoneListActivity로 전환하여 ZoneList가 나열되도록함.
+
+
+
+16Commit_17.08.18
+1. ZoneList에서 원하는 장소 클릭 시, 그곳으로 경로가 설정됨. (그런데 잘안됨. 아직 미완)
