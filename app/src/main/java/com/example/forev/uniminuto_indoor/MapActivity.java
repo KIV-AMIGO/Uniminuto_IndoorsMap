@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -48,9 +49,13 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
     private static int lastProgress = 0;
     String APIKEY = "91c2793f-993f-454f-8802-96a3fe8cdb3c";
     long BuildingID = 795523136;
-    TextView infoTxt;
+    private TextView infoTxt;
+    private TextView destinationTxt;
     private ImageView img_cancle ;
-    private ArrayList<String> zoneList;
+    private static ArrayList<Zone> zones = new ArrayList<>();
+    private ArrayList<String> zoneList = new ArrayList<>();
+    private Coordinate destinationCoor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,7 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         img_cancle =(ImageView)findViewById(R.id.img_cancle);
 
         infoTxt = (TextView) findViewById(R.id.txt_gpsInfo);
+        destinationTxt = (TextView) findViewById(R.id.destinationText);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
             //1. PermissionListener -> 권한이 허가 or 거부시 결과를 리턴해주는 리스너 생성.
             checkLocationIsEnabled();
@@ -112,12 +118,12 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                zoneList = new ArrayList<String>();
                 IndoorsFactory.getInstance().getZones(indoorsSurfaceFragment.getBuilding(), new ZoneCallback() {
                     @Override
                     public void setZones(ArrayList<Zone> arrayList) {
                         for(int i = 0; i < arrayList.size(); i++) {
                             zoneList.add(arrayList.get(i).getName());
+                            zones.add(arrayList.get(i));
                         }
                         Intent it = new Intent(getApplication(), ZoneListActivity.class);
                         it.putExtra("zoneList", zoneList);
@@ -126,6 +132,33 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
                 });
             } //end of onClick
         });
+
+        destinationTxt = (TextView) findViewById(R.id.destinationText);
+        final String destination = getIntent().getStringExtra("destination");
+        destinationTxt.setText("Destination : " + destination);
+        if(destination != null) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapActivity.this);
+            alertDialogBuilder.setTitle("Configuración de ruta");
+            alertDialogBuilder
+                    .setMessage("¿Va configurar la ruta?")
+                    .setCancelable(false)
+                    .setPositiveButton("Sí",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Toast.makeText(MapActivity.this, "Destination : " + destination, Toast.LENGTH_LONG).show();
+                                    findRoute(destination);
+                                }
+                            })
+                    .setNegativeButton("No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // 다이얼로그를 취소한다
+                                    dialog.cancel();
+                                }
+                            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
 
         img_cancle.setOnClickListener(new OnClickListener() {
             @Override
@@ -140,25 +173,19 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
             @Override
             public void onLongClick(final Coordinate coordinate) {
                 Context context;
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapActivity.this
-                        );
-
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapActivity.this);
                 alertDialogBuilder.setTitle("Configuración de ruta");
-
                 alertDialogBuilder
                         .setMessage("¿Va configurar la ruta?")
                         .setCancelable(false)
                         .setPositiveButton("Sí",
                                 new DialogInterface.OnClickListener() {
-                                    public void onClick(
-                                            DialogInterface dialog, int id) {
+                                    public void onClick(DialogInterface dialog, int id) {
                                             routing(coordinate);
                                     }
                                 })
-                        .setNegativeButton("No",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(
-                                            DialogInterface dialog, int id) {
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
                                         // 다이얼로그를 취소한다
                                         dialog.cancel();
                                     }
@@ -169,8 +196,23 @@ public class MapActivity extends AppCompatActivity implements IndoorsLocationLis
         });
     } //end of onCreate()
 
-    private void routing(Coordinate end){
-        Coordinate start =  new Coordinate(93808,45276,8); //test
+    public void findRoute(String destination) {
+        for(int i = 0; i < zones.size(); i++) {
+            if(zones.get(i).getName().equals(destination)) {
+//                Toast.makeText(MapActivity.this, "Success", Toast.LENGTH_LONG).show();
+                destinationCoor = new Coordinate(zones.get(i).getZonePoints().get(0).x, zones.get(i).getZonePoints().get(0).y, zones.get(i).getZonePoints().get(0).z);
+                routing(destinationCoor);
+                break;
+            } else {
+//                Toast.makeText(MapActivity.this, "Fail", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    public void routing(Coordinate end){
+        int z = 8;
+        Coordinate start =  new Coordinate(93808,45276,z); //test
+        indoorsSurfaceFragment.setFloor(z);
                 // indoorsSurfaceFragment.getCurrentUserPosition();;
                 // new Coordinate(93808,45276,8);
         //
